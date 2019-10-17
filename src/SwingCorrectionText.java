@@ -78,8 +78,9 @@ class SwingCorrectionText extends JFrame {
                 .replaceAll("fle", "file")
                 .replaceAll("f le", "file")
                 .replaceAll("identifer", "identifier")
-                .replaceAll("reltivize", "relativize")
-                .replaceAll("resol", "resolve")
-                .replaceAll(" \\(\\)", "\\(\\)");
+                .replaceAll("reltivize ", "relativize")
+                .replaceAll("resol ", "resolve")
+                .replaceAll(" \\(\\)", "()")
+                .replaceAll(" \\\\ ", "\\\\");
     }
 }
