@@ -80,6 +80,8 @@ class SwingCorrectionText extends JFrame {
                 .replaceAll("identifer", "identifier")
                 .replaceAll("reltivize ", "relativize")
                 .replaceAll("resol ", "resolve")
+                .replaceAll("fnal", "final")
+                .replaceAll("modifed", "modified")
                 .replaceAll(" \\(\\)", "()")
                 .replaceAll(" \\\\ ", "\\\\");
     }
