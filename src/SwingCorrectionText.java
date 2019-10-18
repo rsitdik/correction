@@ -75,6 +75,7 @@ class SwingCorrectionText extends JFrame {
                 .replace("\n", " ")
                 .replaceAll("don\"t", "don\'t")
                 .replaceAll("specifc", "specific")
+                .replaceAll("specifed", "specified")
                 .replaceAll("Ta B le", "TABLE")
                 .replaceAll("fle", "file")
                 .replaceAll("f le", "file")
