@@ -70,7 +70,8 @@ class SwingCorrectionText extends JFrame {
     }
 
     private String outText() {
-        return enterText.getText().replace("�", "\"")
+        return enterText.getText()
+                .replace("�", "\"")
                 .replace("\n", " ")
                 .replaceAll("don\"t", "don\'t")
                 .replaceAll("specifc", "specific")
@@ -83,6 +84,7 @@ class SwingCorrectionText extends JFrame {
                 .replaceAll("fnal", "final")
                 .replaceAll("modifed", "modified")
                 .replaceAll(" \\(", "(")
-                .replaceAll(" \\\\ ", "\\\\");
+                .replaceAll(" \\\\ ", "\\\\")
+                .replaceAll(" / ", "/");
     }
 }
