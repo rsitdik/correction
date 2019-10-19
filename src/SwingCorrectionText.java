@@ -84,6 +84,7 @@ class SwingCorrectionText extends JFrame {
                 .replaceAll("resol ", "resolve")
                 .replaceAll("fnal", "final")
                 .replaceAll("modifed", "modified")
+                .replaceAll("modif ed", "modified")
                 .replaceAll(" \\(", "(")
                 .replaceAll(" \\\\ ", "\\\\")
                 .replaceAll(" / ", "/");
