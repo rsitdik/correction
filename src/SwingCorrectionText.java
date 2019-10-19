@@ -70,10 +70,13 @@ class SwingCorrectionText extends JFrame {
     }
 
     private String outText() {
-        return enterText.getText().replace("�", "\"")
+        return enterText.getText()
+                .replace("�", "\"")
                 .replace("\n", " ")
+                .replace(" <", "<")
                 .replaceAll("don\"t", "don\'t")
                 .replaceAll("specifc", "specific")
+                .replaceAll("specifed", "specified")
                 .replaceAll("Ta B le", "TABLE")
                 .replaceAll("fle", "file")
                 .replaceAll("f le", "file")
@@ -81,8 +84,13 @@ class SwingCorrectionText extends JFrame {
                 .replaceAll("reltivize ", "relativize")
                 .replaceAll("resol ", "resolve")
                 .replaceAll("fnal", "final")
+                .replaceAll("f rst", "first")
+                .replaceAll("frst", "first")
+                .replaceAll("f nding", "finding")
                 .replaceAll("modifed", "modified")
-                .replaceAll(" \\(\\)", "()")
-                .replaceAll(" \\\\ ", "\\\\");
+                .replaceAll("modif ed", "modified")
+                .replaceAll(" \\(", "(")
+                .replaceAll(" \\\\ ", "\\\\")
+                .replaceAll(" / ", "/");
     }
 }
