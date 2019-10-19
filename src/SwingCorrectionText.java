@@ -80,6 +80,7 @@ class SwingCorrectionText extends JFrame {
                 .replaceAll("Ta B le", "TABLE")
                 .replaceAll("fle", "file")
                 .replaceAll("f le", "file")
+                .replaceAll("flter", "filter")
                 .replaceAll("identifer", "identifier")
                 .replaceAll("reltivize ", "relativize")
                 .replaceAll("resol ", "resolve")
