@@ -73,6 +73,7 @@ class SwingCorrectionText extends JFrame {
         return enterText.getText()
                 .replace("�", "\"")
                 .replace("\n", " ")
+                .replace(" <", "<")
                 .replaceAll("don\"t", "don\'t")
                 .replaceAll("specifc", "specific")
                 .replaceAll("specifed", "specified")
