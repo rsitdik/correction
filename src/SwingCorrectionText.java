@@ -11,10 +11,14 @@ class SwingCorrectionText extends JFrame {
         JPanel jPanel = new JPanel();
         JPanel jPanel_center = new JPanel();
         JPanel jPanel_south = new JPanel();
+        setLayout(new BorderLayout());
 
         enterText = new JTextArea(15, 44);
         enterText.setLineWrap(true); // вкл. перенос текста
-        setLayout(new BorderLayout());
+
+        resultText = new JTextArea(15, 44);
+        resultText.setLineWrap(true); // вкл. перенос текста;
+        resultText.setEditable(false);
 
         JLabel enterLabel = new JLabel();
         JScrollPane aScroller = new JScrollPane(enterLabel);
@@ -23,10 +27,6 @@ class SwingCorrectionText extends JFrame {
         JButton copyButton = new JButton("Copy");
         JButton clearButton = new JButton("Clear");
         JButton exitButton = new JButton("Exit");
-
-        resultText = new JTextArea(15, 44);
-        resultText.setLineWrap(true); // вкл. перенос текста;
-        resultText.setEditable(false);
 
         pasteButton.addActionListener(actionEvent -> {
             enterText.paste();
@@ -62,6 +62,7 @@ class SwingCorrectionText extends JFrame {
         getContentPane().add(BorderLayout.NORTH, jPanel);
         getContentPane().add(BorderLayout.CENTER, jPanel_center);
         getContentPane().add(BorderLayout.SOUTH, jPanel_south);
+
         setSize(500, 580);
         setResizable(false);
         setLocationRelativeTo(null);
