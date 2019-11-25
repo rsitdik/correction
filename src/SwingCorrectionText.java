@@ -8,20 +8,21 @@ class SwingCorrectionText extends JFrame {
 
     SwingCorrectionText() {
         super("Correction text");
-        JPanel jPanel = new JPanel();
-        JPanel jPanel_center = new JPanel();
-        JPanel jPanel_south = new JPanel();
-        setLayout(new BorderLayout());
+        JPanel northJPanel = new JPanel();
 
         enterText = new JTextArea(15, 44);
         enterText.setLineWrap(true); // вкл. перенос текста
+
+        final JScrollPane northJScrollPane = new JScrollPane(enterText);
+        northJPanel.add(northJScrollPane, BorderLayout.CENTER);
 
         resultText = new JTextArea(15, 44);
         resultText.setLineWrap(true); // вкл. перенос текста;
         resultText.setEditable(false);
 
-        JLabel enterLabel = new JLabel();
-        JScrollPane aScroller = new JScrollPane(enterLabel);
+        JPanel southJPanel = new JPanel();
+        final JScrollPane southJScrollPane = new JScrollPane(resultText);
+        southJPanel.add(southJScrollPane, BorderLayout.CENTER);
 
         JButton pasteButton = new JButton("Paste");
         JButton copyButton = new JButton("Copy");
@@ -44,29 +45,26 @@ class SwingCorrectionText extends JFrame {
         });
 
         exitButton.addActionListener(actionEvent -> System.exit(0));
+        JLabel enterLabel = new JLabel();
         enterLabel.setLayout(new BoxLayout(enterLabel, BoxLayout.Y_AXIS));
 
-        jPanel_center.setLayout(new GridLayout(1, 4));
-        jPanel_center.add(pasteButton);
-        jPanel_center.add(copyButton);
-        jPanel_center.add(clearButton);
-        jPanel_center.add(exitButton);
-        add(jPanel_center, BorderLayout.CENTER);
+        JPanel centerJPanel = new JPanel();
+        centerJPanel.setLayout(new GridLayout(1, 4));
+        centerJPanel.add(pasteButton);
+        centerJPanel.add(copyButton);
+        centerJPanel.add(clearButton);
+        centerJPanel.add(exitButton);
+        add(centerJPanel, BorderLayout.CENTER);
 
-        jPanel.add(enterLabel);
-        jPanel.add(enterText, BorderLayout.NORTH);
-        jPanel.add(aScroller);
-        jPanel_south.add(resultText, BorderLayout.SOUTH);
-        add(jPanel, BorderLayout.NORTH);
-
-        getContentPane().add(BorderLayout.NORTH, jPanel);
-        getContentPane().add(BorderLayout.CENTER, jPanel_center);
-        getContentPane().add(BorderLayout.SOUTH, jPanel_south);
+        getContentPane().add(BorderLayout.NORTH, northJPanel);
+        getContentPane().add(BorderLayout.CENTER, centerJPanel);
+        getContentPane().add(BorderLayout.SOUTH, southJPanel);
 
         setSize(500, 580);
         setResizable(false);
-        setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        pack();
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
