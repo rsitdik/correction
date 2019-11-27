@@ -1,4 +1,4 @@
-package correction_text;
+package correction_text.swing;
 
 import javax.swing.*;
 import java.awt.*;

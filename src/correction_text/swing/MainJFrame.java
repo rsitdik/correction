@@ -1,21 +1,19 @@
-package correction_text;
+package correction_text.swing;
 
 import javax.swing.*;
 import java.awt.*;
 
-class SwingCorrectionText extends JFrame {
+public class MainJFrame extends JFrame {
 
-    SwingCorrectionText() {
-        super("Correction text");
+    public MainJFrame() {
+        super("Correction Text");
         NorthJPanel northJPanel = new NorthJPanel();
         SouthJPanel southJPanel = new SouthJPanel();
         CenterJPanel centerJPanel = new CenterJPanel(northJPanel, southJPanel);
 
+        add(northJPanel, BorderLayout.NORTH);
+        add(southJPanel, BorderLayout.SOUTH);
         add(centerJPanel, BorderLayout.CENTER);
-
-        getContentPane().add(BorderLayout.NORTH, northJPanel);
-        getContentPane().add(BorderLayout.CENTER, centerJPanel);
-        getContentPane().add(BorderLayout.SOUTH, southJPanel);
 
         setSize(500, 580);
         setResizable(false);
