@@ -1,3 +1,5 @@
+package correction_text;
+
 import javax.swing.*;
 
 public class Main {
