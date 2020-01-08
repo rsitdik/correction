@@ -6,9 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TextController {
+    private TextModel textModel;
+
+    public TextController(TextModel textModel) {
+        this.textModel = textModel;
+    }
+
     public String getCorrectedText(String text) {
-        TextModel textModel = new TextModel();
         Map<String, String> mapWords = textModel.initMap(new HashMap<>());
-        return textModel.handleText(text, mapWords);
+        return  textModel.handleText(text, mapWords);
     }
 }

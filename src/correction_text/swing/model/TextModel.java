@@ -3,7 +3,6 @@ package correction_text.swing.model;
 import java.util.Map;
 
 public class TextModel {
-
     public Map<String, String> initMap(Map<String, String> mapWords) {
         mapWords.put("�", "\"");
         mapWords.put("\n", " ");
@@ -36,7 +35,6 @@ public class TextModel {
         mapWords.put("wai t", "wait");
         mapWords.put("awai t", "await");
         mapWords.put("not i fy", "notify");
-
         return mapWords;
     }
 
