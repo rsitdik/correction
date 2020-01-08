@@ -1,13 +1,10 @@
 package correction_text.swing.model;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class TextModel {
-    private Map<String, String> mapWords;
 
-    public void initMap(HashMap<String, String> mapWords) {
-        this.mapWords = mapWords;
+    public Map<String, String> initMap(Map<String, String> mapWords) {
         mapWords.put("�", "\"");
         mapWords.put("\n", " ");
         mapWords.put(" <", "<");
@@ -39,6 +36,8 @@ public class TextModel {
         mapWords.put("wai t", "wait");
         mapWords.put("awai t", "await");
         mapWords.put("not i fy", "notify");
+
+        return mapWords;
     }
 
     public String handleText(String text, Map<String, String> mapWords) {
@@ -47,13 +46,4 @@ public class TextModel {
         }
         return text;
     }
-
-    public Map<String, String> getMapWords() {
-        return mapWords;
-    }
-
-    public void setMapWords(Map<String, String> mapWords) {
-        this.mapWords = mapWords;
-    }
-
 }

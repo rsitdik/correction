@@ -8,9 +8,7 @@ import java.util.Map;
 public class TextController {
     public String getCorrectedText(String text) {
         TextModel textModel = new TextModel();
-        textModel.initMap(new HashMap<>());
-        Map<String, String> mapWords = textModel.getMapWords();
-
+        Map<String, String> mapWords = textModel.initMap(new HashMap<>());
         return textModel.handleText(text, mapWords);
     }
 }
