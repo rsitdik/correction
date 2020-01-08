@@ -1,16 +1,19 @@
-package correction_text.swing;
+package correction_text.swing.view;
 
 import javax.swing.*;
 import java.awt.*;
 
-class NorthJPanel extends JPanel {
+public class NorthJPanel extends JPanel {
     JTextArea enterText;
 
-    NorthJPanel() {
-        enterText = new JTextArea(15, 44);
+    public NorthJPanel(JTextArea enterText) {
+        this.enterText = enterText;
         enterText.setLineWrap(true); // вкл. перенос текста
         JScrollPane northJScrollPane = new JScrollPane(enterText);
         add(northJScrollPane, BorderLayout.CENTER);
     }
 
+    public JTextArea getEnterText() {
+        return enterText;
+    }
 }
