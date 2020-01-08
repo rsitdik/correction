@@ -1,6 +1,6 @@
 package correction_text;
 
-import correction_text.swing.MainJFrame;
+import correction_text.swing.view.MainJFrame;
 
 import javax.swing.*;
 
