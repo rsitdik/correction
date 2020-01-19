@@ -7,13 +7,18 @@ import java.util.Map;
 
 public class TextController {
     private TextModel textModel;
+    Map<String, String> mapWords = new HashMap<>();
 
     public TextController(TextModel textModel) {
         this.textModel = textModel;
+        textModel.createTable();
     }
 
     public String getCorrectedText(String text) {
-        Map<String, String> mapWords = textModel.initMap(new HashMap<>());
         return  textModel.handleText(text, mapWords);
+    }
+
+    public void addNewWord(String keyWord, String valueWord) {
+        mapWords.put(keyWord, valueWord);
     }
 }
