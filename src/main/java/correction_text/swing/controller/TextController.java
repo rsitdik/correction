@@ -1,24 +1,23 @@
 package correction_text.swing.controller;
 
 import correction_text.swing.model.TextModel;
-
-import java.util.HashMap;
 import java.util.Map;
 
 public class TextController {
     private TextModel textModel;
-    Map<String, String> mapWords = new HashMap<>();
+    Map<String, String> words;
 
-    public TextController(TextModel textModel) {
+    public TextController(TextModel textModel, Map<String, String> words) {
         this.textModel = textModel;
-        textModel.createTable();
+        this.words = words;
     }
 
     public String getCorrectedText(String text) {
-        return  textModel.handleText(text, mapWords);
+        textModel.createTable();
+        return  textModel.handleText(text, words);
     }
 
     public void addNewWord(String keyWord, String valueWord) {
-        mapWords.put(keyWord, valueWord);
+        words.put(keyWord, valueWord);
     }
 }

@@ -9,7 +9,7 @@ public class TextModel {
     public static final String URL = "jdbc:sqlite:corr.db";
     static String selectAll = "SELECT incorrect, correct FROM words WHERE id=?";
 
-    public static void createTable() {
+    public void createTable() {
         try (Connection conn = DriverManager.getConnection(URL);
              Statement stmt = conn.createStatement()) {
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS words (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, incorrect TEXT UNIQUE, correct TEXT );");
@@ -18,7 +18,7 @@ public class TextModel {
         }
     }
 
-    private static Map<String, String> getWords(Map<String, String> words) {
+    private Map<String, String> getWords(Map<String, String> words) {
         try (Connection conn = DriverManager.getConnection(URL);
              PreparedStatement stmt = conn.prepareStatement(selectAll)) {
             List<Integer> arrId = getId();
@@ -36,7 +36,7 @@ public class TextModel {
         return words;
     }
 
-    private static List<Integer> getId() throws SQLException {
+    private List<Integer> getId() throws SQLException {
         Connection conn = DriverManager.getConnection(URL);
         Statement stm = conn.createStatement();
         ResultSet resultSet = stm.executeQuery("SELECT id FROM words");
