@@ -57,4 +57,14 @@ public class TextModel {
         }
         return text;
     }
+
+    public void addWord(String incorrect, String correct) {
+        try (Connection conn = DriverManager.getConnection(URL);
+             Statement stmt = conn.createStatement()) {
+            String putWord = "INSERT INTO words (incorrect, correct) VALUES ('" + incorrect + "', '" + correct+"');";
+            stmt.executeUpdate(putWord);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -18,6 +18,6 @@ public class TextController {
     }
 
     public void addNewWord(String keyWord, String valueWord) {
-        words.put(keyWord, valueWord);
+        textModel.addWord(keyWord, valueWord);
     }
 }

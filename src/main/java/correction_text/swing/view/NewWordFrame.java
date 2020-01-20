@@ -39,7 +39,6 @@ public class NewWordFrame extends JFrame {
 
         setLayout(new GridLayout(3, 1));
         setResizable(false);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
