@@ -44,7 +44,7 @@ public class CorrectionTextFile {
         }
     }
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         File source = new File("e:\\\\in.txt");
         File destination = new File("e:\\\\out.txt");
         List<String> data = null;

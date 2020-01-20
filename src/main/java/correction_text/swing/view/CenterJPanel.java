@@ -10,25 +10,29 @@ public class CenterJPanel extends JPanel {
     private JButton copyButton;
     private JButton clearButton;
     private JButton exitButton;
-    private NorthJPanel northJPanel;
-    private SouthJPanel southJPanel;
+    private correction_text.swing.view.NorthJPanel northJPanel;
+    private correction_text.swing.view.SouthJPanel southJPanel;
 
     void init(TextController textController) {
+        pasteButton.setCursor(getHandCursor());
         pasteButton.addActionListener(actionEvent -> {
             this.northJPanel.getEnterText().paste();
             this.southJPanel.getResultText().setText(getCorrectedText(textController));
         });
 
+        copyButton.setCursor(getHandCursor());
         copyButton.addActionListener(actionEvent -> {
             this.southJPanel.getResultText().selectAll();
             this.southJPanel.getResultText().copy();
         });
 
+        clearButton.setCursor(getHandCursor());
         clearButton.addActionListener(actionEvent -> {
             this.northJPanel.getEnterText().setText("");
             this.southJPanel.getResultText().setText("");
         });
 
+        exitButton.setCursor(getHandCursor());
         exitButton.addActionListener(actionEvent -> System.exit(0));
         JLabel enterLabel = new JLabel();
         enterLabel.setLayout(new BoxLayout(enterLabel, BoxLayout.Y_AXIS));
@@ -72,24 +76,28 @@ public class CenterJPanel extends JPanel {
         this.exitButton = exitButton;
     }
 
-    public NorthJPanel getNorthJPanel() {
+    public correction_text.swing.view.NorthJPanel getNorthJPanel() {
         return northJPanel;
     }
 
-    public void setNorthJPanel(NorthJPanel northJPanel) {
+    public void setNorthJPanel(correction_text.swing.view.NorthJPanel northJPanel) {
         this.northJPanel = northJPanel;
     }
 
-    public SouthJPanel getSouthJPanel() {
+    public correction_text.swing.view.SouthJPanel getSouthJPanel() {
         return southJPanel;
     }
 
-    public void setSouthJPanel(SouthJPanel southJPanel) {
+    public void setSouthJPanel(correction_text.swing.view.SouthJPanel southJPanel) {
         this.southJPanel = southJPanel;
     }
 
     private String getCorrectedText(TextController textController) {
         String text = northJPanel.getEnterText().getText();
         return textController.getCorrectedText(text);
+    }
+
+    private Cursor getHandCursor() {
+        return Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
     }
 }
