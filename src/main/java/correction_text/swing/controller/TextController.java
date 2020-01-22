@@ -1,6 +1,7 @@
 package correction_text.swing.controller;
 
 import correction_text.swing.model.TextModel;
+
 import java.util.Map;
 
 public class TextController {
@@ -19,5 +20,13 @@ public class TextController {
 
     public void addNewWord(String keyWord, String valueWord) {
         textModel.addWord(keyWord, valueWord);
+    }
+
+    public Map<String, String> getMapWords() {
+        return textModel.getWords(words);
+    }
+
+    public void deleteWord(String key) {
+        textModel.deleteWord(key);
     }
 }

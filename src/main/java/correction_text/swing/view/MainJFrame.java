@@ -1,7 +1,6 @@
 package correction_text.swing.view;
 
 import correction_text.swing.controller.TextController;
-import correction_text.swing.view.CenterJPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,15 +16,22 @@ public class MainJFrame extends JFrame {
         file.setCursor(getHandCursor());
         JMenu about = new JMenu("About");
         about.setCursor(getHandCursor());
+        // add word
         JMenuItem addWord = new JMenuItem("Add new word");
-        JMenuItem allWords = new JMenuItem("List all words");
         addWord.setCursor(getHandCursor());
         addWord.addActionListener((e -> {
-            new correction_text.swing.view.NewWordFrame(textController);
+            new NewWordFrame(textController);
         }));
+        // list words
+        JMenuItem allWords = new JMenuItem("List words");
+        allWords.addActionListener(e -> {
+            new ListWordsJFrame(textController);
+        });
+        // exit
         JMenuItem exit = new JMenuItem("Exit");
         exit.setCursor(getHandCursor());
         exit.addActionListener(e -> { System.exit(0); });
+
         file.add(addWord);
         file.add(allWords);
         file.addSeparator();
@@ -35,8 +41,8 @@ public class MainJFrame extends JFrame {
         setJMenuBar(menuBar);
         //-----------------------------------
 
-        correction_text.swing.view.NorthJPanel northJPanel = new correction_text.swing.view.NorthJPanel(new JTextArea(15, 44));
-        correction_text.swing.view.SouthJPanel southJPanel = new correction_text.swing.view.SouthJPanel(new JTextArea(15, 44));
+        NorthJPanel northJPanel = new NorthJPanel(new JTextArea(15, 44));
+        SouthJPanel southJPanel = new SouthJPanel(new JTextArea(15, 44));
         CenterJPanel centerJPanel = new CenterJPanel();
         centerJPanel.setNorthJPanel(northJPanel);
         centerJPanel.setSouthJPanel(southJPanel);
